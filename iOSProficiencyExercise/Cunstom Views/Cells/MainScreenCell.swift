@@ -35,8 +35,8 @@ class MainScreenCell: UITableViewCell {
         addSubview(avatarImageView)
         
         avatarImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(self.snp.top).offset(12)
-            make.leading.equalTo(12)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(12)
+            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(12)
             make.width.height.equalTo(60)
         }
     }
@@ -48,7 +48,7 @@ class MainScreenCell: UITableViewCell {
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(avatarImageView.snp.top)
             make.leading.equalTo(avatarImageView.snp.trailing).offset(12)
-            make.trailing.equalTo(self.snp.trailing).offset(-12)
+            make.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-12)
             make.height.equalTo(30)
         }
     }
@@ -63,7 +63,7 @@ class MainScreenCell: UITableViewCell {
         descriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
             make.leading.equalTo(avatarImageView.snp.trailing).offset(12)
-            make.trailing.equalTo(self.snp.trailing).offset(-12)
+            make.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-12)
             make.bottom.equalTo(-12)
         }
     }

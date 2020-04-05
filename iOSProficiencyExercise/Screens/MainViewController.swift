@@ -25,7 +25,15 @@ class MainViewController: UIViewController {
     
     private func configureTableView() {
         view.addSubview(tableView)
-        tableView.frame                 = view.bounds
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.snp.makeConstraints { (make) in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
+        
         tableView.estimatedRowHeight    = 80
         tableView.rowHeight             = UITableView.automaticDimension
         tableView.tableFooterView       = UIView(frame: .zero)
