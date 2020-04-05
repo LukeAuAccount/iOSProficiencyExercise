@@ -38,9 +38,8 @@ class NetworkManager {
                 completed(.failure(.invalidData))
                 return
             }
-            
-            
-            guard let utf8Data = String(decoding: data, as: UTF8.self).data(using: .utf8) else {
+
+            guard let jsonStr = String(data: data, encoding: .ascii), let utf8Data = jsonStr.data(using: .utf8) else {
                 completed(.failure(.invalidData))
                 return
             }
