@@ -4,11 +4,12 @@
 target 'iOSProficiencyExercise' do
   # Comment the next line if you don't want to use dynamic frameworks
   # use_frameworks!
-   pod 'SnapKit', '~> 5.0.0'
-
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'Kingfisher', '~> 5.13'
+  
   target 'iOSProficiencyExerciseTests' do
     inherit! :search_paths
     # Pods for testing
   end
-
+  
 end
