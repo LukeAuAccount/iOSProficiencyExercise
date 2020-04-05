@@ -10,12 +10,27 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    var mainScrViewModel = MainScreenViewModel(title: "", rows: [])
+    
     let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewController()
         configureTableView()
+        
+        NetworkManager.shared.getMainScreenData { [weak self] (result) in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let mainScrViewModel):
+                self.mainScrViewModel = mainScrViewModel
+                self.updateUI()
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
+        
     }
     
     private func configureViewController() {
@@ -44,18 +59,24 @@ class MainViewController: UIViewController {
         tableView.register(MainScreenCell.self, forCellReuseIdentifier: MainScreenCell.reuseID)
     }
 
+    private func updateUI() {
+        DispatchQueue.main.async {
+            self.title = self.mainScrViewModel.title
+            self.tableView.reloadData()
+        }
+    }
 
 }
 
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return mainScrViewModel.rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainScreenCell.reuseID, for: indexPath) as! MainScreenCell
-        
+        cell.set(row: mainScrViewModel.rows[indexPath.row])
         return cell
     }
     

@@ -15,12 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        windonw = UIWindow(frame: UIScreen.main.bounds)
-        let mainVC = MainViewController()
-        windonw?.rootViewController = UINavigationController(rootViewController: mainVC)
-        windonw?.makeKeyAndVisible()
-        
+        if #available(iOS 13.0, *) {
+            // Do something above iOS 13
+        } else {
+            windonw = UIWindow(frame: UIScreen.main.bounds)
+            let mainVC = MainViewController()
+            windonw?.rootViewController = UINavigationController(rootViewController: mainVC)
+            windonw?.makeKeyAndVisible()
+        }
+
         configureNavigationBar()
+        
         return true
     }
     

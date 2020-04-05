@@ -25,6 +25,11 @@ class MainScreenCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(row: Row) {
+        titleLabel.text = row.title ?? "No Title"
+        descriptionLabel.text = row.description ?? "No Description."
+    }
+    
     private func configure() {
         configureAvatarImageView()
         configureTitleLabel()
@@ -43,7 +48,6 @@ class MainScreenCell: UITableViewCell {
     
     private func configureTitleLabel() {
         addSubview(titleLabel)
-        titleLabel.text = "Beavers"
         
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(avatarImageView.snp.top)
@@ -55,13 +59,12 @@ class MainScreenCell: UITableViewCell {
     
     private func configureDescriptionLabel() {
         addSubview(descriptionLabel)
-        descriptionLabel.text = "Beavers are second only to humans in their ability to manipulate and change their environment. They can measure up to 1.3 metres long. A group of beavers is called a colony"
         
         descriptionLabel.numberOfLines = 0
         descriptionLabel.sizeToFit()
         
         descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalTo(avatarImageView.snp.trailing).offset(12)
             make.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-12)
             make.bottom.equalTo(-12)

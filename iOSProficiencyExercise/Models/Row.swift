@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Row: Codable {
+    var title: String?
+    var description: String?
+    var imageHref: String?
+}

@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct MainScreenViewModel: Codable {
+    let title: String
+    let rows: [Row]
+}
