@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		5AAD649670C08D99C11958EF /* Pods_iOSProficiencyExercise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA787EFDFFD3C5354E9606C8 /* Pods_iOSProficiencyExercise.framework */; };
 		A90DA09C2439F40B0027FC27 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA09B2439F40B0027FC27 /* Constants.swift */; };
+		A90DA0A52439F8690027FC27 /* MainScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0A42439F8690027FC27 /* MainScreenCell.swift */; };
+		A90DA0A92439F91D0027FC27 /* LKTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0A82439F91D0027FC27 /* LKTitleLabel.swift */; };
+		A90DA0AB2439FA470027FC27 /* LKBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0AA2439FA470027FC27 /* LKBodyLabel.swift */; };
+		A90DA0AD2439FAE80027FC27 /* LKAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0AC2439FAE80027FC27 /* LKAvatarImageView.swift */; };
+		A90DA0B02439FEA40027FC27 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0AF2439FEA40027FC27 /* UIView+Ext.swift */; };
 		A92BEAE32439EC0C0011646F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE22439EC0C0011646F /* AppDelegate.swift */; };
 		A92BEAE52439EC0C0011646F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE42439EC0C0011646F /* SceneDelegate.swift */; };
 		A92BEAE72439EC0C0011646F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE62439EC0C0011646F /* MainViewController.swift */; };
@@ -34,6 +39,11 @@
 		4F1F0949ADFC614D40266DCB /* Pods-iOSProficiencyExerciseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProficiencyExerciseTests.debug.xcconfig"; path = "Target Support Files/Pods-iOSProficiencyExerciseTests/Pods-iOSProficiencyExerciseTests.debug.xcconfig"; sourceTree = "<group>"; };
 		59C8C1F5DC9393C508FC23D4 /* Pods-iOSProficiencyExerciseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSProficiencyExerciseTests.release.xcconfig"; path = "Target Support Files/Pods-iOSProficiencyExerciseTests/Pods-iOSProficiencyExerciseTests.release.xcconfig"; sourceTree = "<group>"; };
 		A90DA09B2439F40B0027FC27 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A90DA0A42439F8690027FC27 /* MainScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenCell.swift; sourceTree = "<group>"; };
+		A90DA0A82439F91D0027FC27 /* LKTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKTitleLabel.swift; sourceTree = "<group>"; };
+		A90DA0AA2439FA470027FC27 /* LKBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKBodyLabel.swift; sourceTree = "<group>"; };
+		A90DA0AC2439FAE80027FC27 /* LKAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKAvatarImageView.swift; sourceTree = "<group>"; };
+		A90DA0AF2439FEA40027FC27 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		A92BEADF2439EC0C0011646F /* iOSProficiencyExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProficiencyExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92BEAE22439EC0C0011646F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92BEAE42439EC0C0011646F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,8 +128,44 @@
 		A90DA09F2439F4BA0027FC27 /* Cunstom Views */ = {
 			isa = PBXGroup;
 			children = (
+				A90DA0A72439F8FD0027FC27 /* Labels */,
+				A90DA0A62439F8F40027FC27 /* ImageViews */,
+				A90DA0A32439F8540027FC27 /* Cells */,
 			);
 			path = "Cunstom Views";
+			sourceTree = "<group>";
+		};
+		A90DA0A32439F8540027FC27 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A90DA0A42439F8690027FC27 /* MainScreenCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		A90DA0A62439F8F40027FC27 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				A90DA0AC2439FAE80027FC27 /* LKAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		A90DA0A72439F8FD0027FC27 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				A90DA0A82439F91D0027FC27 /* LKTitleLabel.swift */,
+				A90DA0AA2439FA470027FC27 /* LKBodyLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		A90DA0AE2439FE8F0027FC27 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A90DA0AF2439FEA40027FC27 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		A92BEAD62439EC0C0011646F = {
@@ -145,6 +191,7 @@
 		A92BEAE12439EC0C0011646F /* iOSProficiencyExercise */ = {
 			isa = PBXGroup;
 			children = (
+				A90DA0AE2439FE8F0027FC27 /* Extensions */,
 				A90DA09F2439F4BA0027FC27 /* Cunstom Views */,
 				A90DA09E2439F48C0027FC27 /* Screens */,
 				A90DA09A2439F3F80027FC27 /* Utilities */,
@@ -330,10 +377,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90DA0A92439F91D0027FC27 /* LKTitleLabel.swift in Sources */,
+				A90DA0AB2439FA470027FC27 /* LKBodyLabel.swift in Sources */,
 				A92BEAE72439EC0C0011646F /* MainViewController.swift in Sources */,
 				A92BEAE32439EC0C0011646F /* AppDelegate.swift in Sources */,
 				A92BEAE52439EC0C0011646F /* SceneDelegate.swift in Sources */,
+				A90DA0B02439FEA40027FC27 /* UIView+Ext.swift in Sources */,
 				A90DA09C2439F40B0027FC27 /* Constants.swift in Sources */,
+				A90DA0AD2439FAE80027FC27 /* LKAvatarImageView.swift in Sources */,
+				A90DA0A52439F8690027FC27 /* MainScreenCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

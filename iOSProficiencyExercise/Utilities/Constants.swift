@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 enum ScreenSize {
     static let width                    = UIScreen.main.bounds.size.width
@@ -33,3 +34,4 @@ enum DeviceTypes {
         return isiPhoneX || isiPhoneXsMaxAndXr
     }
 }
+
