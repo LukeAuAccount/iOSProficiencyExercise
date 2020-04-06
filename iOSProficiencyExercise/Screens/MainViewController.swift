@@ -9,102 +9,102 @@
 import UIKit
 
 class MainViewController: LKDataLoadingVC {
+  
+  var mainScrViewModel = MainScreenViewModel(title: "", rows: [])
+  
+  let tableView = UITableView()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    configureViewController()
+    configureTableView()
+    // Network Request and update UI
+    refreshData()
+  }
+  
+  private func configureViewController() {
+    view.backgroundColor = .white
+    navigationController?.navigationBar.prefersLargeTitles = true
+    // add refresh button
+    let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
+    navigationItem.rightBarButtonItem = refreshButton
+  }
+  
+  private func configureTableView() {
+    view.addSubview(tableView)
+    tableView.translatesAutoresizingMaskIntoConstraints = false
     
-    var mainScrViewModel = MainScreenViewModel(title: "", rows: [])
-    
-    let tableView = UITableView()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureViewController()
-        configureTableView()
-        // Network Request and update UI
-        refreshData()
+    tableView.snp.makeConstraints { (make) in
+      make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+      make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+      make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+      make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
     }
     
-    private func configureViewController() {
-        view.backgroundColor = .white
-        navigationController?.navigationBar.prefersLargeTitles = true
-        // add refresh button
-        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
-        navigationItem.rightBarButtonItem = refreshButton
-    }
+    // auto height
+    tableView.estimatedRowHeight    = 80
+    tableView.rowHeight             = UITableView.automaticDimension
     
-    private func configureTableView() {
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        tableView.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
-            make.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+    tableView.tableFooterView       = UIView(frame: .zero)
+    
+    tableView.delegate              = self
+    tableView.dataSource            = self
+    
+    tableView.register(MainScreenCell.self, forCellReuseIdentifier: MainScreenCell.reuseID)
+  }
+  
+  
+  /// update UI, including nav.title and tableView
+  private func updateUI() {
+    DispatchQueue.main.async {
+      self.title = self.mainScrViewModel.title
+      self.tableView.reloadData()
+    }
+  }
+  
+  
+  /// check network status and request data
+  @objc func refreshData() {
+    let status = Reach().connectionStatus()
+    switch status {
+    case .unknown, .offline:
+      presentLKAlertOnMainThread(title: "Network Offline", message: "Please check your network status.", buttonTitle: "Ok")
+    default:
+      showLoadingView()
+      NetworkManager.shared.getMainScreenData { [weak self] (result) in
+        guard let self = self else { return }
+        self.dismissLoadingView()
+        switch result {
+        case .success(let mainScrViewModel):
+          self.mainScrViewModel = mainScrViewModel
+          self.updateUI()
+        case .failure(let error):
+          print(error.rawValue)
         }
-        
-        // auto height
-        tableView.estimatedRowHeight    = 80
-        tableView.rowHeight             = UITableView.automaticDimension
-        
-        tableView.tableFooterView       = UIView(frame: .zero)
-        
-        tableView.delegate              = self
-        tableView.dataSource            = self
-        
-        tableView.register(MainScreenCell.self, forCellReuseIdentifier: MainScreenCell.reuseID)
+      }
     }
-    
-    
-    /// update UI, including nav.title and tableView
-    private func updateUI() {
-        DispatchQueue.main.async {
-            self.title = self.mainScrViewModel.title
-            self.tableView.reloadData()
-        }
-    }
-    
-    
-    /// check network status and request data
-    @objc func refreshData() {
-        let status = Reach().connectionStatus()
-        switch status {
-        case .unknown, .offline:
-            presentLKAlertOnMainThread(title: "Network Offline", message: "Please check your network status.", buttonTitle: "Ok")
-        default:
-            showLoadingView()
-            NetworkManager.shared.getMainScreenData { [weak self] (result) in
-                guard let self = self else { return }
-                self.dismissLoadingView()
-                switch result {
-                case .success(let mainScrViewModel):
-                    self.mainScrViewModel = mainScrViewModel
-                    self.updateUI()
-                case .failure(let error):
-                    print(error.rawValue)
-                }
-            }
-        }
-    }
-    
+  }
+  
 }
 
 // MARK: - UITableView DataSource
 extension MainViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainScrViewModel.rows.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainScreenCell.reuseID, for: indexPath) as! MainScreenCell
-        cell.set(row: mainScrViewModel.rows[indexPath.row])
-        return cell
-    }
-    
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return mainScrViewModel.rows.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: MainScreenCell.reuseID, for: indexPath) as! MainScreenCell
+    cell.set(row: mainScrViewModel.rows[indexPath.row])
+    return cell
+  }
+  
 }
 
 // MARK: - UITableView Delegate
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
 }

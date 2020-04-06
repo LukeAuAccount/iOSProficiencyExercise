@@ -6,6 +6,7 @@ target 'iOSProficiencyExercise' do
   # use_frameworks!
   pod 'SnapKit', '~> 5.0.0'
   pod 'Kingfisher', '~> 5.13'
+  pod 'SwiftLint'
   
   target 'iOSProficiencyExerciseTests' do
     inherit! :search_paths
