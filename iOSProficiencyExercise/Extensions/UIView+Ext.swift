@@ -9,9 +9,11 @@
 import UIKit
 
 extension UIView {
-    
-    func addSubViews(_ views: UIView...) {
-        for view in views { addSubview(view) }
-    }
-    
+  
+  /// Add  multiple subViews
+  /// - Parameter views: Variadic Views
+  func addSubViews(_ views: UIView...) {
+    for view in views { addSubview(view) }
+  }
+  
 }

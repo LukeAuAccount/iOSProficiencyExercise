@@ -1,0 +1,9 @@
+excluded:
+- Pods
+- iOSProficiencyExerciseTests
+
+disabled_rules:
+- force_cast
+- colon
+- identifier_name
+- trailing_whitespace
