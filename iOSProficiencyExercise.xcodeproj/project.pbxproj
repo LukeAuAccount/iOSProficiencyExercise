@@ -19,6 +19,11 @@
 		A90DA0B9243A089A0027FC27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0B8243A089A0027FC27 /* NetworkManager.swift */; };
 		A90DA0BB243A0A730027FC27 /* LKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0BA243A0A730027FC27 /* LKError.swift */; };
 		A90DA0BE243AB1530027FC27 /* LKDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0BD243AB1530027FC27 /* LKDataLoadingVC.swift */; };
+		A90DA0C0243AB68B0027FC27 /* LKAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0BF243AB68B0027FC27 /* LKAlertVC.swift */; };
+		A90DA0C3243AB6E70027FC27 /* LKAlertContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0C2243AB6E70027FC27 /* LKAlertContainerView.swift */; };
+		A90DA0C6243AB7430027FC27 /* LKAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0C5243AB7430027FC27 /* LKAlertButton.swift */; };
+		A90DA0C8243AB7C70027FC27 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0C7243AB7C70027FC27 /* UIViewController+Ext.swift */; };
+		A90DA0CA243AB8920027FC27 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0C9243AB8920027FC27 /* Reach.swift */; };
 		A92BEAE32439EC0C0011646F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE22439EC0C0011646F /* AppDelegate.swift */; };
 		A92BEAE52439EC0C0011646F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE42439EC0C0011646F /* SceneDelegate.swift */; };
 		A92BEAE72439EC0C0011646F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE62439EC0C0011646F /* MainViewController.swift */; };
@@ -56,6 +61,11 @@
 		A90DA0B8243A089A0027FC27 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A90DA0BA243A0A730027FC27 /* LKError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKError.swift; sourceTree = "<group>"; };
 		A90DA0BD243AB1530027FC27 /* LKDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKDataLoadingVC.swift; sourceTree = "<group>"; };
+		A90DA0BF243AB68B0027FC27 /* LKAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKAlertVC.swift; sourceTree = "<group>"; };
+		A90DA0C2243AB6E70027FC27 /* LKAlertContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKAlertContainerView.swift; sourceTree = "<group>"; };
+		A90DA0C5243AB7430027FC27 /* LKAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKAlertButton.swift; sourceTree = "<group>"; };
+		A90DA0C7243AB7C70027FC27 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
+		A90DA0C9243AB8920027FC27 /* Reach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		A92BEADF2439EC0C0011646F /* iOSProficiencyExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProficiencyExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92BEAE22439EC0C0011646F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92BEAE42439EC0C0011646F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +123,7 @@
 			children = (
 				A90DA09B2439F40B0027FC27 /* Constants.swift */,
 				A90DA0BA243A0A730027FC27 /* LKError.swift */,
+				A90DA0C9243AB8920027FC27 /* Reach.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -139,6 +150,8 @@
 		A90DA09F2439F4BA0027FC27 /* Cunstom Views */ = {
 			isa = PBXGroup;
 			children = (
+				A90DA0C4243AB71E0027FC27 /* Buttons */,
+				A90DA0C1243AB6C50027FC27 /* Views */,
 				A90DA0BC243AB1250027FC27 /* ViewControllers */,
 				A90DA0A72439F8FD0027FC27 /* Labels */,
 				A90DA0A62439F8F40027FC27 /* ImageViews */,
@@ -176,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A90DA0AF2439FEA40027FC27 /* UIView+Ext.swift */,
+				A90DA0C7243AB7C70027FC27 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,8 +222,25 @@
 			isa = PBXGroup;
 			children = (
 				A90DA0BD243AB1530027FC27 /* LKDataLoadingVC.swift */,
+				A90DA0BF243AB68B0027FC27 /* LKAlertVC.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A90DA0C1243AB6C50027FC27 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A90DA0C2243AB6E70027FC27 /* LKAlertContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A90DA0C4243AB71E0027FC27 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A90DA0C5243AB7430027FC27 /* LKAlertButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		A92BEAD62439EC0C0011646F = {
@@ -235,13 +266,13 @@
 		A92BEAE12439EC0C0011646F /* iOSProficiencyExercise */ = {
 			isa = PBXGroup;
 			children = (
+				A90DA0AE2439FE8F0027FC27 /* Extensions */,
 				A90DA0B3243A062D0027FC27 /* Managers */,
+				A90DA09A2439F3F80027FC27 /* Utilities */,
 				A90DA0B2243A061E0027FC27 /* ViewModels */,
 				A90DA0B1243A06070027FC27 /* Models */,
-				A90DA0AE2439FE8F0027FC27 /* Extensions */,
 				A90DA09F2439F4BA0027FC27 /* Cunstom Views */,
 				A90DA09E2439F48C0027FC27 /* Screens */,
-				A90DA09A2439F3F80027FC27 /* Utilities */,
 				A90DA09D2439F46A0027FC27 /* Support */,
 				A92BEAF02439EC0E0011646F /* Info.plist */,
 			);
@@ -408,14 +439,19 @@
 			files = (
 				A90DA0B9243A089A0027FC27 /* NetworkManager.swift in Sources */,
 				A90DA0A92439F91D0027FC27 /* LKTitleLabel.swift in Sources */,
+				A90DA0C3243AB6E70027FC27 /* LKAlertContainerView.swift in Sources */,
 				A90DA0B7243A07D80027FC27 /* MainScreenViewModel.swift in Sources */,
 				A90DA0AB2439FA470027FC27 /* LKBodyLabel.swift in Sources */,
 				A90DA0BB243A0A730027FC27 /* LKError.swift in Sources */,
 				A92BEAE72439EC0C0011646F /* MainViewController.swift in Sources */,
+				A90DA0C6243AB7430027FC27 /* LKAlertButton.swift in Sources */,
+				A90DA0C8243AB7C70027FC27 /* UIViewController+Ext.swift in Sources */,
+				A90DA0C0243AB68B0027FC27 /* LKAlertVC.swift in Sources */,
 				A92BEAE32439EC0C0011646F /* AppDelegate.swift in Sources */,
 				A92BEAE52439EC0C0011646F /* SceneDelegate.swift in Sources */,
 				A90DA0B02439FEA40027FC27 /* UIView+Ext.swift in Sources */,
 				A90DA09C2439F40B0027FC27 /* Constants.swift in Sources */,
+				A90DA0CA243AB8920027FC27 /* Reach.swift in Sources */,
 				A90DA0BE243AB1530027FC27 /* LKDataLoadingVC.swift in Sources */,
 				A90DA0AD2439FAE80027FC27 /* LKAvatarImageView.swift in Sources */,
 				A90DA0B5243A06F00027FC27 /* Row.swift in Sources */,

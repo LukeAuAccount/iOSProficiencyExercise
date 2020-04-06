@@ -59,20 +59,26 @@ class MainViewController: LKDataLoadingVC {
     }
     
     @objc func refreshData() {
-        showLoadingView()
-        NetworkManager.shared.getMainScreenData { [weak self] (result) in
-            guard let self = self else { return }
-            self.dismissLoadingView()
-            switch result {
-            case .success(let mainScrViewModel):
-                self.mainScrViewModel = mainScrViewModel
-                self.updateUI()
-            case .failure(let error):
-                print(error.rawValue)
+        let status = Reach().connectionStatus()
+        switch status {
+        case .unknown, .offline:
+            presentLKAlertOnMainThread(title: "Network Offline", message: "Please check your network status.", buttonTitle: "Ok")
+        default:
+            showLoadingView()
+            NetworkManager.shared.getMainScreenData { [weak self] (result) in
+                guard let self = self else { return }
+                self.dismissLoadingView()
+                switch result {
+                case .success(let mainScrViewModel):
+                    self.mainScrViewModel = mainScrViewModel
+                    self.updateUI()
+                case .failure(let error):
+                    print(error.rawValue)
+                }
             }
         }
     }
-
+    
 }
 
 // MARK: - UITableView DataSource
