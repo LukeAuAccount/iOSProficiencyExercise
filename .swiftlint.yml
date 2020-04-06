@@ -1,0 +1,9 @@
+excluded:
+- Pods
+- iOSProficiencyExerciseTests
+
+disabled_rules: # 执行时排除掉的规则
+- force_cast
+- colon
+- identifier_name
+- trailing_whitespace

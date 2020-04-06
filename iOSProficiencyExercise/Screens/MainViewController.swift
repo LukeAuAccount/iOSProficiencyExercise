@@ -52,8 +52,7 @@ class MainViewController: LKDataLoadingVC {
     
     tableView.register(MainScreenCell.self, forCellReuseIdentifier: MainScreenCell.reuseID)
   }
-  
-  
+
   /// update UI, including nav.title and tableView
   private func updateUI() {
     DispatchQueue.main.async {
@@ -61,14 +60,15 @@ class MainViewController: LKDataLoadingVC {
       self.tableView.reloadData()
     }
   }
-  
-  
+
   /// check network status and request data
   @objc func refreshData() {
     let status = Reach().connectionStatus()
     switch status {
     case .unknown, .offline:
-      presentLKAlertOnMainThread(title: "Network Offline", message: "Please check your network status.", buttonTitle: "Ok")
+      presentLKAlertOnMainThread(title: "Network Offline",
+                                 message: "Please check your network status.",
+                                 buttonTitle: "Ok")
     default:
       showLoadingView()
       NetworkManager.shared.getMainScreenData { [weak self] (result) in
