@@ -29,8 +29,10 @@ class ModelTests: XCTestCase {
                       """
       
       let json = jsonString.data(using: .utf8)!
+      
       let row1 = try? JSONDecoder().decode(Row.self, from: json)
       let row2 = Row(title: "Space Program", description: "Canada hopes to soon launch a man to the moon.", imageHref: nil)
+      
       XCTAssertEqual(row1?.title, row2.title)
       XCTAssertEqual(row1?.description, row2.description)
       XCTAssertEqual(row1?.imageHref, row2.imageHref)
