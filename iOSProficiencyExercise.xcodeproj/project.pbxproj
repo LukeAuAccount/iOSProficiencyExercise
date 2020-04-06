@@ -13,7 +13,6 @@
 		A90DA0A92439F91D0027FC27 /* LKTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0A82439F91D0027FC27 /* LKTitleLabel.swift */; };
 		A90DA0AB2439FA470027FC27 /* LKBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0AA2439FA470027FC27 /* LKBodyLabel.swift */; };
 		A90DA0AD2439FAE80027FC27 /* LKAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0AC2439FAE80027FC27 /* LKAvatarImageView.swift */; };
-		A90DA0B02439FEA40027FC27 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0AF2439FEA40027FC27 /* UIView+Ext.swift */; };
 		A90DA0B5243A06F00027FC27 /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0B4243A06F00027FC27 /* Row.swift */; };
 		A90DA0B7243A07D80027FC27 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0B6243A07D80027FC27 /* MainScreenViewModel.swift */; };
 		A90DA0B9243A089A0027FC27 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0B8243A089A0027FC27 /* NetworkManager.swift */; };
@@ -30,6 +29,7 @@
 		A92BEAE72439EC0C0011646F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE62439EC0C0011646F /* MainViewController.swift */; };
 		A92BEAEC2439EC0E0011646F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92BEAEB2439EC0E0011646F /* Assets.xcassets */; };
 		A92BEAEF2439EC0E0011646F /* LaunchScreen-.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92BEAED2439EC0E0011646F /* LaunchScreen-.storyboard */; };
+		A988AB82243AE73D0077AA07 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A988AB81243AE73C0077AA07 /* UIView+Ext.swift */; };
 		CC642F434EA6E94BEA4C64C4 /* libPods-iOSProficiencyExercise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE65D76B39954B24A0F3DFB /* libPods-iOSProficiencyExercise.a */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +55,6 @@
 		A90DA0A82439F91D0027FC27 /* LKTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKTitleLabel.swift; sourceTree = "<group>"; };
 		A90DA0AA2439FA470027FC27 /* LKBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKBodyLabel.swift; sourceTree = "<group>"; };
 		A90DA0AC2439FAE80027FC27 /* LKAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKAvatarImageView.swift; sourceTree = "<group>"; };
-		A90DA0AF2439FEA40027FC27 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		A90DA0B4243A06F00027FC27 /* Row.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
 		A90DA0B6243A07D80027FC27 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		A90DA0B8243A089A0027FC27 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		A92BEAF02439EC0E0011646F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A92BEAF52439EC0E0011646F /* iOSProficiencyExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSProficiencyExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92BEAFB2439EC0E0011646F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A988AB81243AE73C0077AA07 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 		A90DA0AE2439FE8F0027FC27 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A90DA0AF2439FEA40027FC27 /* UIView+Ext.swift */,
+				A988AB81243AE73C0077AA07 /* UIView+Ext.swift */,
 				A90DA0C7243AB7C70027FC27 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
@@ -464,13 +464,13 @@
 				A90DA0B7243A07D80027FC27 /* MainScreenViewModel.swift in Sources */,
 				A90DA0AB2439FA470027FC27 /* LKBodyLabel.swift in Sources */,
 				A90DA0BB243A0A730027FC27 /* LKError.swift in Sources */,
+				A988AB82243AE73D0077AA07 /* UIView+Ext.swift in Sources */,
 				A92BEAE72439EC0C0011646F /* MainViewController.swift in Sources */,
 				A90DA0C6243AB7430027FC27 /* LKAlertButton.swift in Sources */,
 				A90DA0C8243AB7C70027FC27 /* UIViewController+Ext.swift in Sources */,
 				A90DA0C0243AB68B0027FC27 /* LKAlertVC.swift in Sources */,
 				A92BEAE32439EC0C0011646F /* AppDelegate.swift in Sources */,
 				A92BEAE52439EC0C0011646F /* SceneDelegate.swift in Sources */,
-				A90DA0B02439FEA40027FC27 /* UIView+Ext.swift in Sources */,
 				A90DA09C2439F40B0027FC27 /* Constants.swift in Sources */,
 				A90DA0CA243AB8920027FC27 /* Reach.swift in Sources */,
 				A90DA0BE243AB1530027FC27 /* LKDataLoadingVC.swift in Sources */,

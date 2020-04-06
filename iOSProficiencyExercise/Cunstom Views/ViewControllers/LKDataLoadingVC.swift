@@ -16,7 +16,7 @@ class LKDataLoadingVC: UIViewController {
     containerView = UIView(frame: view.bounds)
     view.addSubview(containerView)
     
-    containerView.backgroundColor   = .lightGray
+    containerView.backgroundColor   = Colors.systemBackgroundColor
     containerView.alpha             = 0
     
     UIView.animate(withDuration: 0.25) { self.containerView.alpha = 0.8 }

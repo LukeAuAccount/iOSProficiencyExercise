@@ -53,14 +53,11 @@ class MainViewController: LKDataLoadingVC {
     tableView.register(MainScreenCell.self, forCellReuseIdentifier: MainScreenCell.reuseID)
   }
 
-  /// update UI, including nav.title and tableView
-  private func updateUI() {
-    DispatchQueue.main.async {
-      self.title = self.mainScrViewModel.title
-      self.tableView.reloadData()
-    }
-  }
+}
 
+// MARK: - Get Data
+extension MainViewController {
+  
   /// check network status and request data
   @objc func refreshData() {
     let status = Reach().connectionStatus()
@@ -70,18 +67,31 @@ class MainViewController: LKDataLoadingVC {
                                  message: "Please check your network status.",
                                  buttonTitle: "Ok")
     default:
-      showLoadingView()
-      NetworkManager.shared.getMainScreenData { [weak self] (result) in
-        guard let self = self else { return }
-        self.dismissLoadingView()
-        switch result {
-        case .success(let mainScrViewModel):
-          self.mainScrViewModel = mainScrViewModel
-          self.updateUI()
-        case .failure(let error):
-          print(error.rawValue)
-        }
+      requestData()
+    }
+  }
+  
+  private func requestData() {
+    showLoadingView()
+    NetworkManager.shared.getMainScreenData { [weak self] (result) in
+      guard let self = self else { return }
+      self.dismissLoadingView()
+      switch result {
+      case .success(let mainScrViewModel):
+        self.mainScrViewModel = mainScrViewModel
+        self.updateUI()
+      case .failure(let error):
+        print(error.rawValue)
+        self.presentLKAlertOnMainThread(title: "Something Went Wrong", message: error.rawValue, buttonTitle: "Ok")
       }
+    }
+  }
+  
+  /// update UI, including nav.title and tableView
+  private func updateUI() {
+    DispatchQueue.main.async {
+      self.title = self.mainScrViewModel.title
+      self.tableView.reloadData()
     }
   }
   
