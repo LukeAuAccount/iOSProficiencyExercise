@@ -2,7 +2,7 @@ excluded:
 - Pods
 - iOSProficiencyExerciseTests
 
-disabled_rules: # 执行时排除掉的规则
+disabled_rules:
 - force_cast
 - colon
 - identifier_name
