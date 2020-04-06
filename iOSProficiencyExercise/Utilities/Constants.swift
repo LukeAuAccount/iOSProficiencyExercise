@@ -35,3 +35,6 @@ enum DeviceTypes {
     }
 }
 
+enum Images {
+    static let placeholder = UIImage(named: "placeholder")
+}

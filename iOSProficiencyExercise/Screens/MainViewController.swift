@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: LKDataLoadingVC {
     
     var mainScrViewModel = MainScreenViewModel(title: "", rows: [])
     
@@ -19,23 +19,15 @@ class MainViewController: UIViewController {
         configureViewController()
         configureTableView()
         
-        NetworkManager.shared.getMainScreenData { [weak self] (result) in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let mainScrViewModel):
-                self.mainScrViewModel = mainScrViewModel
-                self.updateUI()
-            case .failure(let error):
-                print(error.rawValue)
-            }
-        }
-        
+        refreshData()
     }
     
     private func configureViewController() {
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
+        navigationItem.rightBarButtonItem = refreshButton
     }
     
     private func configureTableView() {
@@ -65,9 +57,25 @@ class MainViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    @objc func refreshData() {
+        showLoadingView()
+        NetworkManager.shared.getMainScreenData { [weak self] (result) in
+            guard let self = self else { return }
+            self.dismissLoadingView()
+            switch result {
+            case .success(let mainScrViewModel):
+                self.mainScrViewModel = mainScrViewModel
+                self.updateUI()
+            case .failure(let error):
+                print(error.rawValue)
+            }
+        }
+    }
 
 }
 
+// MARK: - UITableView DataSource
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,6 +90,9 @@ extension MainViewController: UITableViewDataSource {
     
 }
 
+// MARK: - UITableView Delegate
 extension MainViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

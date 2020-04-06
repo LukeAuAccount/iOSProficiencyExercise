@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainScreenCell: UITableViewCell {
 
@@ -28,6 +29,7 @@ class MainScreenCell: UITableViewCell {
     func set(row: Row) {
         titleLabel.text = row.title ?? "No Title"
         descriptionLabel.text = row.description ?? "No Description."
+        avatarImageView.kf.setImage(with: URL(string: row.imageHref ?? ""), placeholder: Images.placeholder)
     }
     
     private func configure() {
