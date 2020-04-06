@@ -36,9 +36,9 @@ enum DeviceTypes {
 }
 
 enum Images {
-  static let placeholder = UIImage(named: "placeholder")
+  static let placeholder              = UIImage(named: "placeholder")
 }
 
 enum Colors {
-  static let systemBackgroundColor = UIColor(red: 201.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
+  static let systemBackgroundColor    = UIColor(red: 201.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
 }

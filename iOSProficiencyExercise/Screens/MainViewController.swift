@@ -22,7 +22,7 @@ class MainViewController: LKDataLoadingVC {
     refreshData()
   }
   
-  private func configureViewController() {
+  func configureViewController() {
     view.backgroundColor = .white
     navigationController?.navigationBar.prefersLargeTitles = true
     // add refresh button
@@ -30,7 +30,7 @@ class MainViewController: LKDataLoadingVC {
     navigationItem.rightBarButtonItem = refreshButton
   }
   
-  private func configureTableView() {
+  func configureTableView() {
     view.addSubview(tableView)
     tableView.translatesAutoresizingMaskIntoConstraints = false
     
@@ -71,6 +71,8 @@ extension MainViewController {
     }
   }
   
+  
+  /// request data
   private func requestData() {
     showLoadingView()
     NetworkManager.shared.getMainScreenData { [weak self] (result) in
@@ -114,7 +116,9 @@ extension MainViewController: UITableViewDataSource {
 
 // MARK: - UITableView Delegate
 extension MainViewController: UITableViewDelegate {
+  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
   }
+  
 }

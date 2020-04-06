@@ -11,12 +11,15 @@ import Kingfisher
 
 class MainScreenCell: UITableViewCell {
   
-  static let reuseID      = "MainScreenCellID"
-  
   let avatarImageView     = LKAvatarImageView(frame: .zero)
   let titleLabel          = LKTitleLabel(textAlignment: .left, fontSize: 26)
   let descriptionLabel    = LKBodyLabel(fontSize: 16)
   
+  static let reuseID      = "MainScreenCellID"
+  
+  let noTitleStr          = "No title"
+  let noDescriptionStr    = "No Description"
+
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     configure()
@@ -27,8 +30,8 @@ class MainScreenCell: UITableViewCell {
   }
   
   func set(row: Row) {
-    titleLabel.text = row.title ?? "No Title"
-    descriptionLabel.text = row.description ?? "No Description."
+    titleLabel.text = row.title ?? noTitleStr
+    descriptionLabel.text = row.description ?? noDescriptionStr
     avatarImageView.kf.setImage(with: URL(string: row.imageHref ?? ""), placeholder: Images.placeholder)
   }
   
