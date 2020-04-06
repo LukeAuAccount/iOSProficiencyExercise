@@ -52,7 +52,7 @@ class MainViewController: LKDataLoadingVC {
     
     tableView.register(MainScreenCell.self, forCellReuseIdentifier: MainScreenCell.reuseID)
   }
-
+  
 }
 
 // MARK: - Get Data
@@ -60,22 +60,19 @@ extension MainViewController {
   
   /// check network status and request data
   @objc func refreshData() {
-    let status = Reach().connectionStatus()
-    switch status {
-    case .unknown, .offline:
-      presentLKAlertOnMainThread(title: "Network Offline",
-                                 message: "Please check your network status.",
-                                 buttonTitle: "Ok")
-    default:
+    if getNetworkReachable() {
       requestData()
+    } else {
+      presentLKAlertOnMainThread(title: "Network Offline",
+                                 message: "Please check your network status...",
+                                 buttonTitle: "Ok")
     }
   }
-  
   
   /// request data
   private func requestData() {
     showLoadingView()
-    NetworkManager.shared.getMainScreenData { [weak self] (result) in
+    NetworkManager.shared.performMainScreenGetRequest { [weak self] (result) in
       guard let self = self else { return }
       self.dismissLoadingView()
       switch result {

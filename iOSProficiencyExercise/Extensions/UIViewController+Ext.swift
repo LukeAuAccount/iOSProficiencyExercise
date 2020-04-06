@@ -24,4 +24,14 @@ extension UIViewController {
     }
   }
   
+  func getNetworkReachable() -> Bool {
+    let status = Reach().connectionStatus()
+    switch status {
+    case .unknown, .offline:
+      return false
+    default:
+      return true
+    }
+  }
+  
 }

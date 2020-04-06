@@ -17,10 +17,24 @@ class NetworkManager {
   /// base URL
   private let baseURL = "https://dl.dropboxusercontent.com/"
   
-  /// request data on Main Screen
+  /// request main screen data
   /// - Parameter completed: completed closure
-  func getMainScreenData(completed: @escaping (Result<MainScreenViewModel, LKError>) -> Void) {
-    let endPoint = baseURL + "s/2iodh4vg0eortkl/facts.json"
+  func performMainScreenGetRequest(completed: @escaping (Result<MainScreenViewModel, LKError>) -> Void) {
+    performGetRequest(endPoind: .facts, completed: completed)
+  }
+  
+}
+
+// MARK: - Request Methods
+extension NetworkManager {
+  
+  /// request data
+  /// - Parameters:
+  ///   - endPoind: endPoint enum
+  ///   - completed: completed closure
+  private func performGetRequest<T: Decodable>(endPoind: NetworkEndPoint,
+                                               completed: @escaping (Result<T, LKError>) -> Void) {
+    let endPoint = baseURL + endPoind.rawValue
     
     // request url
     guard let url = URL(string: endPoint) else {
@@ -54,8 +68,8 @@ class NetworkManager {
       // decoding json
       do {
         let decoder = JSONDecoder()
-        let mainScrViewModel = try decoder.decode(MainScreenViewModel.self, from: utf8Data)
-        completed(.success(mainScrViewModel))
+        let model = try decoder.decode(T.self, from: utf8Data)
+        completed(.success(model))
       } catch {
         print(error)
         completed(.failure(.invalidData))

@@ -20,7 +20,7 @@ class NetworkManagerTests: XCTestCase {
     }
 
     func testExample() {
-      NetworkManager.shared.getMainScreenData { (result) in
+      NetworkManager.shared.performMainScreenGetRequest { (result) in
         switch result {
         case .success(let viewModel):
           XCTAssertEqual(viewModel.title, "About Canada")
