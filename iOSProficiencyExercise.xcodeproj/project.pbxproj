@@ -24,12 +24,12 @@
 		A90DA0C6243AB7430027FC27 /* LKAlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0C5243AB7430027FC27 /* LKAlertButton.swift */; };
 		A90DA0C8243AB7C70027FC27 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0C7243AB7C70027FC27 /* UIViewController+Ext.swift */; };
 		A90DA0CA243AB8920027FC27 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0C9243AB8920027FC27 /* Reach.swift */; };
+		A90DA0CD243ABB1F0027FC27 /* RowModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90DA0CC243ABB1F0027FC27 /* RowModelTest.swift */; };
 		A92BEAE32439EC0C0011646F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE22439EC0C0011646F /* AppDelegate.swift */; };
 		A92BEAE52439EC0C0011646F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE42439EC0C0011646F /* SceneDelegate.swift */; };
 		A92BEAE72439EC0C0011646F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAE62439EC0C0011646F /* MainViewController.swift */; };
 		A92BEAEC2439EC0E0011646F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92BEAEB2439EC0E0011646F /* Assets.xcassets */; };
 		A92BEAEF2439EC0E0011646F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A92BEAED2439EC0E0011646F /* LaunchScreen.storyboard */; };
-		A92BEAFA2439EC0E0011646F /* iOSProficiencyExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92BEAF92439EC0E0011646F /* iOSProficiencyExerciseTests.swift */; };
 		CC642F434EA6E94BEA4C64C4 /* libPods-iOSProficiencyExercise.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE65D76B39954B24A0F3DFB /* libPods-iOSProficiencyExercise.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +66,8 @@
 		A90DA0C5243AB7430027FC27 /* LKAlertButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKAlertButton.swift; sourceTree = "<group>"; };
 		A90DA0C7243AB7C70027FC27 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		A90DA0C9243AB8920027FC27 /* Reach.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		A90DA0CB243ABB1E0027FC27 /* iOSProficiencyExerciseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSProficiencyExerciseTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		A90DA0CC243ABB1F0027FC27 /* RowModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowModelTest.swift; sourceTree = "<group>"; };
 		A92BEADF2439EC0C0011646F /* iOSProficiencyExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSProficiencyExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92BEAE22439EC0C0011646F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A92BEAE42439EC0C0011646F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +76,6 @@
 		A92BEAEE2439EC0E0011646F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A92BEAF02439EC0E0011646F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A92BEAF52439EC0E0011646F /* iOSProficiencyExerciseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSProficiencyExerciseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A92BEAF92439EC0E0011646F /* iOSProficiencyExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSProficiencyExerciseTests.swift; sourceTree = "<group>"; };
 		A92BEAFB2439EC0E0011646F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -282,8 +283,9 @@
 		A92BEAF82439EC0E0011646F /* iOSProficiencyExerciseTests */ = {
 			isa = PBXGroup;
 			children = (
-				A92BEAF92439EC0E0011646F /* iOSProficiencyExerciseTests.swift */,
 				A92BEAFB2439EC0E0011646F /* Info.plist */,
+				A90DA0CC243ABB1F0027FC27 /* RowModelTest.swift */,
+				A90DA0CB243ABB1E0027FC27 /* iOSProficiencyExerciseTests-Bridging-Header.h */,
 			);
 			path = iOSProficiencyExerciseTests;
 			sourceTree = "<group>";
@@ -343,6 +345,7 @@
 					};
 					A92BEAF42439EC0E0011646F = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = A92BEADE2439EC0C0011646F;
 					};
 				};
@@ -463,7 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A92BEAFA2439EC0E0011646F /* iOSProficiencyExerciseTests.swift in Sources */,
+				A90DA0CD243ABB1F0027FC27 /* RowModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +652,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XC26654A2X;
 				INFOPLIST_FILE = iOSProficiencyExerciseTests/Info.plist;
@@ -660,6 +664,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuchanghong.iOSProficiencyExerciseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSProficiencyExerciseTests/iOSProficiencyExerciseTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSProficiencyExercise.app/iOSProficiencyExercise";
@@ -672,6 +678,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XC26654A2X;
 				INFOPLIST_FILE = iOSProficiencyExerciseTests/Info.plist;
@@ -683,6 +690,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.liuchanghong.iOSProficiencyExerciseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSProficiencyExerciseTests/iOSProficiencyExerciseTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOSProficiencyExercise.app/iOSProficiencyExercise";

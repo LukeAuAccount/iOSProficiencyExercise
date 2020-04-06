@@ -18,14 +18,14 @@ class MainViewController: LKDataLoadingVC {
         super.viewDidLoad()
         configureViewController()
         configureTableView()
-        
+        // Network Request and update UI
         refreshData()
     }
     
     private func configureViewController() {
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
-        
+        // add refresh button
         let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshData))
         navigationItem.rightBarButtonItem = refreshButton
     }
@@ -41,8 +41,10 @@ class MainViewController: LKDataLoadingVC {
             make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
         }
         
+        // auto height
         tableView.estimatedRowHeight    = 80
         tableView.rowHeight             = UITableView.automaticDimension
+        
         tableView.tableFooterView       = UIView(frame: .zero)
         
         tableView.delegate              = self
@@ -50,7 +52,9 @@ class MainViewController: LKDataLoadingVC {
         
         tableView.register(MainScreenCell.self, forCellReuseIdentifier: MainScreenCell.reuseID)
     }
-
+    
+    
+    /// update UI, including nav.title and tableView
     private func updateUI() {
         DispatchQueue.main.async {
             self.title = self.mainScrViewModel.title
@@ -58,6 +62,8 @@ class MainViewController: LKDataLoadingVC {
         }
     }
     
+    
+    /// check network status and request data
     @objc func refreshData() {
         let status = Reach().connectionStatus()
         switch status {
